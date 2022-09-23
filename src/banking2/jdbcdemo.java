@@ -17,12 +17,17 @@ public class jdbcdemo {
 				
 				Connection con = DriverManager.getConnection(url,userName,password);
 				
+				if(con!=null)
+					System.out.println("connected");
+				else
+					System.out.println("no connection");
+				
 				Statement stmt = con.createStatement();
 				
 				ResultSet rs = stmt.executeQuery("select * from BankingSystem");
-				
+				System.out.println("customerId	customerName   		balance		previousTransaction");
 				while(rs.next()) {
-					System.out.println(rs.getString(1)+":"+rs.getString(2));
+					System.out.println(rs.getString(1)+"		"+rs.getString(2)+"			"+rs.getString(3)+"			"+rs.getString(4));
 				}
 				
 			} catch (Exception e) {
