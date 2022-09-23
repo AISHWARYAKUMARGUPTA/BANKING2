@@ -6,4 +6,5 @@
  *
  */
 module banking2 {
+	requires java.sql;
 }
